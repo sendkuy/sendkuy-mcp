@@ -1,0 +1,69 @@
+{
+  "name": "@sendkuy/mcp",
+  "version": "1.0.0",
+  "description": "MCP server for SendKuy: let AI assistants and agents send WhatsApp, SMS and email, verify OTP codes and run campaigns.",
+  "mcpName": "com.sendkuy/mcp",
+  "keywords": [
+    "sendkuy",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "ai-agents",
+    "whatsapp",
+    "whatsapp-api",
+    "sms",
+    "email",
+    "otp",
+    "notifications",
+    "indonesia"
+  ],
+  "homepage": "https://docs.sendkuy.com/mcp",
+  "bugs": {
+    "url": "https://github.com/sendkuy/sendkuy-mcp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sendkuy/sendkuy-mcp.git"
+  },
+  "license": "MIT",
+  "author": "SendKuy (https://sendkuy.com)",
+  "type": "module",
+  "engines": {
+    "node": ">=20.3"
+  },
+  "bin": {
+    "sendkuy-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "build:bundle": "tsup --config tsup.bundle.config.ts",
+    "pack:mcpb": "npm run build:bundle && mcpb pack . sendkuy-mcp.mcpb",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check:versions": "node scripts/check-versions.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "sendkuy": "file:../sendkuy-node",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@types/node": "^22.20.5",
+    "prettier": "^3.9.10",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  }
+}

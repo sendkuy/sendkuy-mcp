@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.sendkuy/mcp",
+  "title": "SendKuy",
+  "description": "Send WhatsApp, SMS and email, verify OTP codes and run campaigns with SendKuy.",
+  "websiteUrl": "https://docs.sendkuy.com/mcp",
+  "repository": { "url": "https://github.com/sendkuy/sendkuy-mcp", "source": "github" },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@sendkuy/mcp",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "SENDKUY_API_KEY",
+          "description": "SendKuy API key from https://app.sendkuy.com/user/api. Needs account:read plus the scopes of the tools you want.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

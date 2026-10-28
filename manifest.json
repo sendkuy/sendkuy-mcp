@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/schemas/mcpb-manifest-v0.4.schema.json",
+  "manifest_version": "0.4",
+  "name": "sendkuy",
+  "display_name": "SendKuy",
+  "version": "1.0.0",
+  "description": "Send WhatsApp, SMS and email, verify OTP codes and run campaigns with SendKuy.",
+  "long_description": "Let Claude send WhatsApp, SMS and email through your SendKuy account: alerts, daily summaries, order notifications and OTP codes, plus campaigns you prepared in the SendKuy dashboard. Tools follow the scopes of your API key, so a read-only key never sees a tool that sends.",
+  "author": { "name": "SendKuy", "url": "https://sendkuy.com" },
+  "repository": { "type": "git", "url": "https://github.com/sendkuy/sendkuy-mcp" },
+  "homepage": "https://sendkuy.com",
+  "documentation": "https://docs.sendkuy.com/mcp",
+  "support": "https://github.com/sendkuy/sendkuy-mcp/issues",
+  "license": "MIT",
+  "keywords": ["whatsapp", "sms", "email", "otp", "notifications", "indonesia"],
+  "server": {
+    "type": "node",
+    "entry_point": "bundle/server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/bundle/server.js"],
+      "env": { "SENDKUY_API_KEY": "${user_config.api_key}" }
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "SendKuy API key",
+      "description": "Create a key at https://app.sendkuy.com/user/api with the scopes your assistant needs, plus account:read.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "tools_generated": true,
+  "compatibility": { "runtimes": { "node": ">=20.3" } }
+}

@@ -1,0 +1,6 @@
+*.mcpb
+bundle
+dist
+package-lock.json
+spec
+src/generated
