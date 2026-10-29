@@ -23,4 +23,5 @@ Dockerfile
 tsconfig.json
 CHANGELOG.md
 CONTRIBUTING.md
+RELEASING.md
 SECURITY.md

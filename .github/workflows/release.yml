@@ -30,7 +30,14 @@ jobs:
         run: |
           awk -v v="${GITHUB_REF_NAME#v}" '$0 ~ "^## \\[" v "\\]" {f=1; next} /^## \[/ {f=0} f' CHANGELOG.md > notes.md
           test -s notes.md || { echo "CHANGELOG.md has no section for ${GITHUB_REF_NAME#v}"; exit 1; }
-      - run: npm publish --provenance --access public
+      - name: Publish to npm unless this version is already there
+        run: |
+          version="$(node -p 'require("./package.json").version')"
+          if npm view "@sendkuy/mcp@${version}" version >/dev/null 2>&1; then
+            echo "@sendkuy/mcp@${version} is already on npm"
+          else
+            npm publish --provenance --access public
+          fi
       - run: npm run pack:mcpb
       - run: gh release create "$GITHUB_REF_NAME" sendkuy-mcp.mcpb --title "$GITHUB_REF_NAME" --notes-file notes.md
         env:
