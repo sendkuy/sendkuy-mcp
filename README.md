@@ -11,6 +11,7 @@ Give AI assistants and agents a way to reach people: send WhatsApp, SMS and emai
 [![npm](https://img.shields.io/npm/v/@sendkuy/mcp)](https://www.npmjs.com/package/@sendkuy/mcp)
 [![CI](https://github.com/sendkuy/sendkuy-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/sendkuy/sendkuy-mcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![sendkuy/sendkuy-mcp MCP server](https://glama.ai/mcp/servers/sendkuy/sendkuy-mcp/badges/score.svg)](https://glama.ai/mcp/servers/sendkuy/sendkuy-mcp)
 
 Use it while you build an integration ("send a test OTP to my number", "why is my webhook failing?"), or as the notification step of an agent that runs on its own: an on-call alert, a daily revenue summary, an order update per customer.
 
